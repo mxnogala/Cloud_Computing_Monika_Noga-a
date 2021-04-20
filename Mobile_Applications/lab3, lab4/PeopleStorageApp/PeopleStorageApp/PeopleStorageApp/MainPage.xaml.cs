@@ -17,15 +17,17 @@ namespace PeopleStorageApp
         public MainPage(IPeopleClient client)
         {
             InitializeComponent();
+
+            BindingContext = new DataBinding(person);
             this.client = client;
             btnPhoto.Clicked += BtnPhoto_Clicked;
             btnSave.Clicked += BtnSave_Clicked;
-            tbxFirstName.TextChanged += TbxFirstName_TextChanged;
-            tbxLastName.TextChanged += TbxLastName_TextChanged;
-            tbxPhoneNumber.TextChanged += TbxPhoneNumber_TextChanged;
+            //tbxFirstName.TextChanged += TbxFirstName_TextChanged;
+            //tbxLastName.TextChanged += TbxLastName_TextChanged;
+            //tbxPhoneNumber.TextChanged += TbxPhoneNumber_TextChanged;
 
         }
-
+        /*
         private void TbxPhoneNumber_TextChanged(object sender, TextChangedEventArgs e)
         {
             person.PhoneNumber = e.NewTextValue;
@@ -40,7 +42,7 @@ namespace PeopleStorageApp
         {
             person.FirstName = e.NewTextValue;
         }
-
+        */
         private async void BtnSave_Clicked(object sender, EventArgs e)
         {
             if (!Validate())
@@ -63,11 +65,13 @@ namespace PeopleStorageApp
 
         private void Clear()
         {
-            tbxFirstName.Text = string.Empty;
-            tbxLastName.Text = string.Empty;
-            tbxPhoneNumber.Text = string.Empty;
+            //tbxFirstName.Text = string.Empty;
+            //tbxLastName.Text = string.Empty;
+            //tbxPhoneNumber.Text = string.Empty;
             imgPhoto.Source = null;
             person = new Person();
+            
+
         }
 
         private async void BtnPhoto_Clicked(object sender, EventArgs e)
